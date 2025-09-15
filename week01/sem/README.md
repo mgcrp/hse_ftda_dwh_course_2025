@@ -1,5 +1,61 @@
 ## Семинар 1. Поднимаем OLTP для сервиса в Docker.
 
+### Пререквизиты для прохождения курса
+
+#### 0 - git
+
+git - распределённая система управления версиями.<br>
+Мы будем использовать репозитории для сдачи домашних работ.<br>
+Если вы еще не знакомы с git:
+- Ищем на YouTube любой git tutorial на 10 минут
+- Проходим любой курс по git (например [этот](https://stepik.org/course/125248))
+
+В качестве remote репозитория мы будем использовать [GitHub](https://github.com).<br>
+Если у вас все еще по какой-то причине нет аккаунта там - самое время завести.
+
+Для взаимодействия с репозиторием нам потребуется git-клиент.<br>
+Можно использовать [консольный клиент](https://git-scm.com/downloads) - это похвально и при должной сноровке максимально бытро и удобно.<br>
+Я со своей стороны рекомендую [GitHub Desktop](https://desktop.github.com/download/) - удобный desktop клиент, в котором все делается одной кнопкой в уютном UI.
+
+Когда вы будете делать ДЗ, вам потребуется делать каждое ДЗ в своей ветке, и после проверки при желании вы сможете вмержить его в мастер.
+
+#### 1 - Docker
+
+Docker - ПО для автоматизации развёртывания и управления приложениями в средах с поддержкой контейнеризации, контейнеризатор приложений.<br>
+Для запуска контейнеров с приложениями вам потребуется либо пакет ПО Docker с консольным клиентом, либо [Docker Desktop](https://docs.docker.com/desktop/).
+
+#### 2 - IDE для БД
+
+- Самое удобное, если на вас не наложены санкции - [JetBrains DataGrip](https://www.jetbrains.com/ru-ru/datagrip/)
+- OpenSource IDE, но сильно менее удобная и с сильно менее удобным UI/Shortcut'ами - [DBeaver](https://dbeaver.io)
+- Консольная - psql (устанавливается вместе с postgresql, на Mac можно поставить через `brew install postgresql`)
+- Оптимально красиво и удобно - [DBCode](https://dbcode.io) как дополнение для VSCode
+
+### Демо 0 - Запускаем контейнер с PostgreSQL из консоли
+
+```bash
+docker run --rm --name postgres_1 -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:latest
+```
+
+Здесь:
+- `--rm` - удалить docker volume (виртуальный диск контейнера) и сам контейнер после остановки
+- `--name` - кастомное имя контейнера
+- `-e` - переменные окружения в контейнере; в нашем случае POSTGRES_PASSWORD - пароль от superuser в контейнере с PostgreSQL (без этого контейнер не запустится)
+- `-p` - маппинг портов; левый 5432 на нашем компьютере (его можно изменить на любой другой свободный) на 5432 на контейнере
+- `-d` - detach; работать в фоне
+- `postgres:latest` - имя образа в [Docker Hub](https://hub.docker.com), хралилище готовых контейнеров; `postgres` - имя образа, `latest` - версия образа, так называемый tag
+
+Для подключения:
+```bash
+psql -h localhost -p 5432 -U postgres -d postgres
+```
+
+Здесь:
+- `-h` - хост
+- `-p` - порт
+- `-U` - имя пользователя
+- `-d` - название базы данных
+
 ### Демо 1 - Самый простой голый PostgreSQL.
 
 Для такого сценария достаточно максимально просто конфига:
@@ -68,15 +124,15 @@ PGDATA=/var/lib/postgresql/data/pgdata
 version: "3"
 services:
   postgres:
-    image: postgres:13
+    image: postgres:latest
     environment:
       POSTGRES_DB: "postgres"
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      - .:/var/lib/postgresql/data
-      - ./createdb.sql:/docker-entrypoint-initdb.d/createdb.sql
+      - ./data:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
 ```
