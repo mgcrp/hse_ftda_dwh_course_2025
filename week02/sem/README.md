@@ -212,13 +212,15 @@ hadoop jar /opt/hadoop-3.2.1/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar \
 7. `hdfs dfs -ls /data/sem_example`
 8. `hdfs fsck /data/sem_example`
 9. `/usr/bin/pyspark`
-10. ```python
+10. 
+```python
 df = spark \
     .read \
     .option('header', 'true') \
     .csv('hdfs://rc1d-dataproc-m-n1j4m8fiuosjs7rb.mdb.yandexcloud.net:8020/data/sem_example/breweries.csv')
 ```
-11.```python
+11.
+```python
 df.groupby('state') \
     .count() \
     .repartition(1) \
@@ -227,20 +229,23 @@ df.groupby('state') \
     .option('header', 'true') \
     .csv('hdfs://rc1d-dataproc-m-n1j4m8fiuosjs7rb.mdb.yandexcloud.net:8020/data/sem_example/breweries_groupby_pySpark.csv')
 ```
-12.```python
+12.
+```python
 spark.read.option('header', 'true').csv('hdfs://rc1d-dataproc-m-n1j4m8fiuosjs7rb.mdb.yandexcloud.net:8020/data/sem_example/breweries_groupby_pySpark.csv').show()
 ```
 13. `hdfs dfs -mkdir -p /data/text`
 14. `hdfs dfs -put pg4300.txt /data/text/pg4300.txt`
 15. `hdfs dfs -put pg5000.txt /data/text/pg5000.txt`
 16. `hdfs dfs -ls /data/text`
-17. ```bash
+17. 
+```bash
 hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming-3.2.2.jar \
 -file mapper.py     -mapper mapper.py \
 -file reducer.py    -reducer reducer.py \
 -input /data/text/* -output /data/text-output
 ```
-18.```python
+18.
+```python
 df = spark.read.csv('hdfs://rc1d-dataproc-m-n1j4m8fiuosjs7rb.mdb.yandexcloud.net:8020/data/text-output', sep='\t')
 
 df.sort(df._c1, ascending=False).show()
