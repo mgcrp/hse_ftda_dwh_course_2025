@@ -1,0 +1,43 @@
+[databases]
+postgres = host=${POSTGRES_HOST} port=5432 dbname=postgres
+template1 = host=${POSTGRES_HOST} port=5432 dbname=template1
+
+[pgbouncer]
+listen_port = 6432
+listen_addr = 0.0.0.0
+auth_type = md5
+auth_file = /etc/pgbouncer/userlist.txt
+pool_mode = session
+server_reset_query = DISCARD ALL
+max_client_conn = 150
+default_pool_size = 25
+min_pool_size = 5
+reserve_pool_size = 5
+reserve_pool_timeout = 5
+max_db_connections = 50
+max_user_connections = 50
+server_round_robin = 1
+ignore_startup_parameters = extra_float_digits
+
+# Log settings
+log_connections = 1
+log_disconnections = 1
+log_pooler_errors = 1
+log_stats = 1
+stats_period = 60
+
+# Admin settings
+admin_users = postgres,admin
+stats_users = postgres,admin
+
+# Connection settings
+server_lifetime = 3600
+server_idle_timeout = 600
+client_idle_timeout = 0
+query_timeout = 0
+query_wait_timeout = 120
+client_login_timeout = 60
+autodb_idle_timeout = 3600
+
+# TLS settings (disabled for simplicity)
+server_tls_sslmode = prefer
