@@ -2,7 +2,7 @@ import json
 from kafka import KafkaConsumer
 
 KAFKA_HOST = "localhost"
-KAFKA_TOPIC_NAME = "service_backend_feed"
+KAFKA_TOPIC_NAME = ["service_backend_feed"]
 KAFKA_CONSUMER_GROUP = "backend"
 
 consumer = KafkaConsumer(
