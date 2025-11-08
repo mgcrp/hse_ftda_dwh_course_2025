@@ -167,5 +167,6 @@ src/
 *.key
 minio/
 data*/
-archive.zip
+*.zip
 breweries.csv
+db_data_*/
