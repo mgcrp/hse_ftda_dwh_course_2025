@@ -210,7 +210,7 @@ from validation_errors
 ```
     - Потом его можно включить в schema.yml (тест будет называться `is_moscow`)
 
-#### 3 - Automate DV
+#### 2 - Automate DV
 
 1) Датасет - https://www.tpc.org/tpch/
 2) Документация - https://automate-dv.readthedocs.io/en/v0.8.3/
