@@ -13,26 +13,28 @@ O_{итоговая} = ⅓ O_{ДЗ 1} + ⅓ O_{ДЗ 2} + ⅓ O_{ДЗ 3}
 ```
 
 Фактические темы лекций и семинаров:
-| # | Дата       | Занятие | Тема                                               | Материалы |
-| - | ---------- | ------- | -------------------------------------------------- | --------- |
-| 1 | 09.09.2025 | Лекция  | Введение в Data Engineering                        | [Слайды](week01/week01_intro.pdf) |
-| 1 | 09.09.2025 | Семинар | Знакомство с PostgreSQL; Docker-compose;           | [План семинара](week01/sem/README.md) |
-| 2 | 16.09.2025 | Семинар | Репликация в PostgreSQL; HA-PG кластер;            | Репликация ([1](week02/sem/demo0_logical_replication), [2](week02/sem/demo1_manual_replication), [3](week02/sem/demo1_manual_replication)), [HA-кластер](week02/sem/demo3_ha_pg) |
-| 2 | 16.09.2025 | Семинар | Hadoop-экосистема; HDFS; MapReduce; Spark;         | [Слайды](week02/week02_files.pdf), [План семинара](week02/sem/README.md) |
-| 3 | 23.09.2025 | Лекция  | Объектные хранилища; Файловые и табличные форматы  | [Слайды - хранилища](week02/week02_files.pdf), [Слайды - файлы](week03/week03_file_formats.pdf) |
-| 3 | 23.09.2025 | Семинар | Практика: Avro, Parquet, Iceberg                   | [План семинара](week03/sem/README.md) |
-| 4 | 30.09.2025 | Лекция  | MPP; GreenPlum;                                    | [Слайды](week04/week04_dwh.pdf) |
-| 4 | 30.09.2025 | Семинар | Знакомство с GreenPlum;                            | [План семинара](week04/sem/demo1_gp/README.md) |
-| 5 | 07.10.2025 | Лекция  | Архитектуры DDS-слоя DWH;                          | [Слайды](week04/week04_dwh.pdf) |
-| 5 | 07.10.2025 | Семинар | Message broker'ы; Знакомство с Kafka;              | [Слайды](week05/week05_queues.pdf), [План семинара](week05/sem/demo1_kafka) |
-| 6 | 14.10.2025 | Лекция  | Способы захвата изменений с источника;             | [Слайды](week05/week05_queues.pdf) |
-| 6 | 14.10.2025 | Семинар | Debezium;                                          | Примеры Debezium ([1](week05/sem/demo2_debezium), [2](week05/sem/demo3_debezium_sink)) |
-| 7 | 08.11.2025 | Лекция  | Проектирование ETL-процессов;                      | [Слайды](week06/week06_etl.pdf) |
-| 7 | 08.11.2025 | Семинар | Знакомство с dbt;                                  | [План семинара](week06/sem/README.md) |
-| 8 | 15.11.2025 | Семинар | Знакомство с Apache Airflow;                       | [Слайды](week07/week07_airflow.pdf) |
-| 8 | 15.11.2025 | Семинар | Продвинутые сценарии использования Apache Airflow; | [План семинара](week07/sem) |
-| 9 | 22.11.2025 | Лекция  | Мониторинги; BI-системы;                           | [Слайды](week08/week08_bi.pdf) |
-| 9 | 22.11.2025 | Семинар | Знакомство с Grafana, Metabase, и другими BI;      | [План семинара](week08/sem/README.md) |
+| #  | Дата       | Занятие | Тема                                               | Материалы |
+| -- | ---------- | ------- | -------------------------------------------------- | --------- |
+| 1  | 09.09.2025 | Лекция  | Введение в Data Engineering                        | [Слайды](week01/week01_intro.pdf) |
+| 1  | 09.09.2025 | Семинар | Знакомство с PostgreSQL; Docker-compose;           | [План семинара](week01/sem/README.md) |
+| 2  | 16.09.2025 | Семинар | Репликация в PostgreSQL; HA-PG кластер;            | Репликация ([1](week02/sem/demo0_logical_replication), [2](week02/sem/demo1_manual_replication), [3](week02/sem/demo1_manual_replication)), [HA-кластер](week02/sem/demo3_ha_pg) |
+| 2  | 16.09.2025 | Семинар | Hadoop-экосистема; HDFS; MapReduce; Spark;         | [Слайды](week02/week02_files.pdf), [План семинара](week02/sem/README.md) |
+| 3  | 23.09.2025 | Лекция  | Объектные хранилища; Файловые и табличные форматы  | [Слайды - хранилища](week02/week02_files.pdf), [Слайды - файлы](week03/week03_file_formats.pdf) |
+| 3  | 23.09.2025 | Семинар | Практика: Avro, Parquet, Iceberg                   | [План семинара](week03/sem/README.md) |
+| 4  | 30.09.2025 | Лекция  | MPP; GreenPlum;                                    | [Слайды](week04/week04_dwh.pdf) |
+| 4  | 30.09.2025 | Семинар | Знакомство с GreenPlum;                            | [План семинара](week04/sem/demo1_gp/README.md) |
+| 5  | 07.10.2025 | Лекция  | Архитектуры DDS-слоя DWH;                          | [Слайды](week04/week04_dwh.pdf) |
+| 5  | 07.10.2025 | Семинар | Message broker'ы; Знакомство с Kafka;              | [Слайды](week05/week05_queues.pdf), [План семинара](week05/sem/demo1_kafka) |
+| 6  | 14.10.2025 | Лекция  | Способы захвата изменений с источника;             | [Слайды](week05/week05_queues.pdf) |
+| 6  | 14.10.2025 | Семинар | Debezium;                                          | Примеры Debezium ([1](week05/sem/demo2_debezium), [2](week05/sem/demo3_debezium_sink)) |
+| 7  | 08.11.2025 | Лекция  | Проектирование ETL-процессов;                      | [Слайды](week06/week06_etl.pdf) |
+| 7  | 08.11.2025 | Семинар | Знакомство с dbt;                                  | [План семинара](week06/sem/README.md) |
+| 8  | 15.11.2025 | Семинар | Знакомство с Apache Airflow;                       | [Слайды](week07/week07_airflow.pdf) |
+| 8  | 15.11.2025 | Семинар | Продвинутые сценарии использования Apache Airflow; | [План семинара](week07/sem) |
+| 9  | 22.11.2025 | Лекция  | Мониторинги; BI-системы;                           | [Слайды](week08/week08_bi.pdf) |
+| 9  | 22.11.2025 | Семинар | Знакомство с Grafana, Metabase, и другими BI;      | [План семинара](week08/sem/README.md) |
+| 10 | 29.11.2025 | Лекция  | Streaming;                                         | [Слайды](week09/week09_streaming.pdf) |
+| 10 | 29.11.2025 | Семинар | Kafka-consumers with Python; Spark Streaming; kSQL | [План семинара](week08/sem) |
 
 Сроки домашнего задания:
 |        | Ссылка               | Дата Выдачи   | Дедлайн    |
